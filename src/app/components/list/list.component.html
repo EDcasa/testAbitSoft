@@ -1,0 +1,38 @@
+<mat-table class="persons-table mat-elevation-z8" [dataSource]="dataSource">
+    <ng-container matColumnDef="id">
+        <div *matHeaderCellDef>#</div>
+        <div *matCellDef="let person">{{person.id}}</div>
+    </ng-container>
+
+    <ng-container matColumnDef="fullName">
+        <div *matHeaderCellDef>Nombres y Apellidos</div>
+        <div *matCellDef="let person">{{person.fullName}}</div>
+    </ng-container>
+
+    <ng-container matColumnDef="age">
+        <div *matHeaderCellDef> Edad </div>
+        <div class="duration-cell" *matCellDef="let person">{{person.age}}</div>
+    </ng-container>
+    <ng-container matColumnDef="birthDate">
+        <div *matHeaderCellDef>Fecha de nacimiento</div>
+        <div class="duration-cell" *matCellDef="let person">{{person.birthDate}}</div>
+    </ng-container>
+    <ng-container matColumnDef="dateInscription">
+        <div *matHeaderCellDef>Fecha de inscripcion</div>
+        <div class="duration-cell" *matCellDef="let person">{{person.dateInscription}}</div>
+    </ng-container>
+    <ng-container matColumnDef="cost">
+        <div *matHeaderCellDef>Costo</div>
+        <div class="duration-cell" *matCellDef="let person">{{person.cost}}</div>
+    </ng-container>
+    <!-- <ng-container matColumnDef="edit">
+        <div *matHeaderCellDef>Editar</div>
+        <div class="duration-cell" >Editar icono</div>
+    </ng-container> -->
+    <!-- <ng-container matColumnDef="delete">
+        <div *matHeaderCellDef>Eliminar</div>
+        <div class="duration-cell"> Eliminar icono</div>
+    </ng-container> -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

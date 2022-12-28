@@ -1,0 +1,45 @@
+<form class="form-container" novalidate autocomplete="off" [formGroup]="formPerson" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Información General</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input matInput="" placeholder="Nombres y Apellidos" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input matInput="" placeholder="Edad"  type="number"/>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <mat-form-field class="full-width">
+            <input matInput="" placeholder="Fecha de nacimiento" type="date"/>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <mat-form-field class="full-width">
+            <input matInput="" placeholder="Fecha de inscripción" type="date"/>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <mat-form-field class="full-width">
+            <input matInput="" placeholder="Costo USD" type="number"/>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button="" color="primary">Save</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
