@@ -19,6 +19,8 @@ export class PersonService {
   }
 
   postPerson(dataPerson:IPerson){
+    console.log(dataPerson);
+    
     return this.http.post<IPerson>(this.baseURL, dataPerson);
   }
 

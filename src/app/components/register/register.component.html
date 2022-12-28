@@ -7,39 +7,39 @@
       <div class="row">
         <div class="col-md-6">
           <mat-form-field class="full-width">
-            <input matInput="" placeholder="Nombres y Apellidos" />
+            <input matInput="" placeholder="Nombres y Apellidos" formControlName="fullName"/>
           </mat-form-field>
         </div>
         <div class="col-md-6">
           <mat-form-field class="full-width">
-            <input matInput="" placeholder="Edad"  type="number"/>
+            <input matInput="" placeholder="Edad"  type="number"  formControlName="age"/>
           </mat-form-field>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-6">
           <mat-form-field class="full-width">
-            <input matInput="" placeholder="Fecha de nacimiento" type="date"/>
+            <input matInput="" placeholder="Fecha de nacimiento" type="date"  formControlName="birthDate"/>
           </mat-form-field>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-6">
           <mat-form-field class="full-width">
-            <input matInput="" placeholder="Fecha de inscripción" type="date"/>
+            <input matInput="" placeholder="Fecha de inscripción" type="date"  formControlName="dateInscription"/>
           </mat-form-field>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-6">
           <mat-form-field class="full-width">
-            <input matInput="" placeholder="Costo USD" type="number"/>
+            <input matInput="" placeholder="Costo USD" type="number"  formControlName="cost"/>
           </mat-form-field>
         </div>
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button="" color="primary">Save</button>
+      <button mat-raised-button="" color="primary" type="submit">Registrar</button>
     </mat-card-actions>
   </mat-card>
 </form>

@@ -21,21 +21,31 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.formPerson = this.formBuilder.group({
-      documentNumber: ["", [Validators.required,Validators.maxLength(10)]],
-      firstName: ["", [Validators.required, Validators.maxLength(100)]],
-      lastName: ["", [Validators.required, Validators.maxLength(100)]],
-      amountSaving: ["", [Validators.required]],
+      fullName: ["", [Validators.required,Validators.maxLength(10)]],
+      age: ["", [Validators.required, Validators.maxLength(100)]],
+      birthDate: ["", [Validators.required, Validators.maxLength(100)]],
+      dateInscription: ["", [Validators.required]],
+      cost: ["", [Validators.required]],
     },{
       //validator: validateMinValueSaving("amountSaving")
     });
   }
 
   onSubmit(){
+    console.log("in submit");
+    console.log(this.formPerson);
+    
     const dataPerson:IPerson = this.formPerson.value;
     if(dataPerson.id){
-      this._sPerson.putPerson(dataPerson)
+    this._sPerson.putPerson(dataPerson)
     }else{
-      this._sPerson.postPerson(dataPerson)
+      this._sPerson.postPerson(dataPerson).subscribe(val=>{
+        console.log("in result");
+        
+      }, err=>{
+        console.log(err);
+        
+      })
     }
   }
 
