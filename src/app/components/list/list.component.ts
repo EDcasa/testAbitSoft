@@ -8,17 +8,17 @@ import { PersonService } from 'src/app/services/person.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  dataSource!:IPerson[];
-  // dataSource:IPerson[]=[
-  //   {
-  //     id:1,
-  //     age:30,
-  //     birthDate:'19/11/1995',
-  //     dateInscription:'19/11/1995',
-  //     cost:30,
-  //     fullName:"David Casa"
-  //   }
-  // ];
+  //dataSource!:IPerson[];
+  dataSource:IPerson[]=[
+    {
+      id:1,
+      age:30,
+      birthDate:'19/11/1995',
+      dateInscription:'19/11/1995',
+      cost:30,
+      fullName:"David Casa"
+    }
+  ];
   //displayedColumns = ["id","fullName", "age", "birthDate", "dateInscription", "cost", "edit", "delete"];
   displayedColumns = ["id","fullName", "age", "birthDate", "dateInscription", "cost"];
 
@@ -27,7 +27,7 @@ export class ListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getPeople();
+    //this.getPeople();
   }
 
   getPeople(){
