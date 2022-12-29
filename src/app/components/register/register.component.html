@@ -1,40 +1,73 @@
-<form class="form-container" novalidate autocomplete="off" [formGroup]="formPerson" (ngSubmit)="onSubmit()">
+<form novalidate autocomplete="off" [formGroup]="formPerson" (ngSubmit)="onSubmit()">
   <mat-card>
     <mat-card-header>
       <mat-card-title>Información General</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <div class="row">
-        <div class="col-md-6">
+      <div class="row mb-4">
+        <div class="col">
           <mat-form-field class="full-width">
-            <input matInput="" placeholder="Nombres y Apellidos" formControlName="fullName"/>
+            <input matInput="" placeholder="Nombres y Apellidos" formControlName="fullName" />
           </mat-form-field>
+          <div *ngIf="formPerson.controls['fullName'].invalid && formPerson.controls['fullName'].errors && 
+                    (formPerson.controls['fullName'].dirty || formPerson.controls['fullName'].touched)">
+            <small class="text-danger" *ngIf="formPerson.controls['fullName'].hasError('required')">
+              Ingrese el campo requerido.
+            </small>
+            <small class="text-danger" *ngIf="formPerson.controls['fullName'].hasError('minlength')">
+              Se requiere al menos {{formPerson.controls['fullName'].errors.minlength.requiredLength}} caracteres.
+            </small>
+          </div>
         </div>
-        <div class="col-md-6">
+        <div class="col">
           <mat-form-field class="full-width">
-            <input matInput="" placeholder="Edad"  type="number"  formControlName="age"/>
+            <input matInput="" placeholder="Edad" type="number" formControlName="age" />
           </mat-form-field>
+          <div *ngIf="formPerson.controls['age'].invalid && formPerson.controls['age'].errors && 
+                    (formPerson.controls['age'].dirty || formPerson.controls['age'].touched)">
+            <small class="text-danger" *ngIf="formPerson.controls['age'].hasError('required')">
+              Ingrese el campo requerido.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput="" placeholder="Fecha de nacimiento" type="date" formControlName="birthDate" />
+          </mat-form-field>
+          <div *ngIf="formPerson.controls['birthDate'].invalid && formPerson.controls['birthDate'].errors && 
+                    (formPerson.controls['birthDate'].dirty || formPerson.controls['birthDate'].touched)">
+            <small class="text-danger" *ngIf="formPerson.controls['birthDate'].hasError('required')">
+              Ingrese el campo requerido.
+            </small>
+          </div>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput="" placeholder="Fecha de inscripción" type="date" formControlName="dateInscription"
+              (change)="onchangeDateInscription()" />
+          </mat-form-field>
+          <div *ngIf="formPerson.controls['dateInscription'].invalid && formPerson.controls['dateInscription'].errors && 
+                    (formPerson.controls['dateInscription'].dirty || formPerson.controls['dateInscription'].touched)">
+            <small class="text-danger" *ngIf="formPerson.controls['dateInscription'].hasError('required')">
+              Ingrese el campo requerido.
+            </small>
+          </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col">
           <mat-form-field class="full-width">
-            <input matInput="" placeholder="Fecha de nacimiento" type="date"  formControlName="birthDate"/>
+            <input matInput="" placeholder="Costo USD" type="number" formControlName="cost" readonly />
           </mat-form-field>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-6">
-          <mat-form-field class="full-width">
-            <input matInput="" placeholder="Fecha de inscripción" type="date"  formControlName="dateInscription" (change)="onchangeDateInscription()"/>
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-6">
-          <mat-form-field class="full-width">
-            <input matInput="" placeholder="Costo USD" type="number"  formControlName="cost" readonly/>
-          </mat-form-field>
+          <div *ngIf="formPerson.controls['cost'].invalid && formPerson.controls['cost'].errors && 
+                    (formPerson.controls['cost'].dirty || formPerson.controls['cost'].touched)">
+            <small class="text-danger" *ngIf="formPerson.controls['cost'].hasError('required')">
+              Ingrese el campo requerido.
+            </small>
+          </div>
         </div>
       </div>
     </mat-card-content>
